@@ -12,3 +12,6 @@ Setup venv & install requirements in requirements.txt with makefile or whatever 
 Activate venv by sourcing activation script:
 
 `$ source .env/bin/activate`
+
+Modify R3 & Beam configuration in `config.py` and then run `main.py`.
+Data & plots are outputted into the `data/` folder.

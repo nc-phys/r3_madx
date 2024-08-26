@@ -4,6 +4,7 @@ if __name__ == "__main__":
     sim = R3MADX()
     sim.config()
     sim.survey()
+    sim.tl_approx()
     sim.match()
     sim.twiss()
     sim.repl()

@@ -4,12 +4,14 @@ import config
 
 from .initialize import R3Config
 from .survey import R3Survey
+from .tl_approx import R3TLApprox
 from .matching import R3Matching
 from .twiss import R3Twiss
 
 class R3MADX(
     R3Config,
     R3Survey,
+    R3TLApprox,
     R3Matching,
     R3Twiss
 ):

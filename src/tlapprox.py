@@ -1,7 +1,7 @@
 import numpy as np
 
 class R3TLApprox:
-    def tl_approx(self):
+    def tlapprox(self):
         """
         Apply a thin lens approximation as well as increase the resolution of the output data through the addition of extra monitors.
         """

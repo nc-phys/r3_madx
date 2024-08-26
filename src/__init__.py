@@ -1,32 +1,40 @@
-import code
-from cpymad.madx import Madx
 import config
-
-from .initialize import R3Config
 from .survey import R3Survey
-from .tl_approx import R3TLApprox
-from .matching import R3Matching
+from .tlapprox import R3TLApprox
+from .match import R3Match
 from .twiss import R3Twiss
 
 class R3MADX(
-    R3Config,
     R3Survey,
     R3TLApprox,
-    R3Matching,
+    R3Match,
     R3Twiss
 ):
-    def __init__(self):
+    """
+    Child umbrella class that uses multiple inheritance to combine all parent classes.
+    """
+    def __init__(self, madx):
         """
-        Initialize the MAD-X instance and set up the configuration.
+        Initialize the MAD-X instance.
         """
-        self.madx = Madx()
+        self.madx = madx
+        self._config()
+
+    def _config(self):
+        """
+        Configure MAD-X Instance.
+        """
         self.sequence_file = config.SEQUENCE_FILE
         self.beam_config = config.BEAM_CONFIG
         self.n_turns = config.N_TURNS
         self.circumference = 0
 
-    def repl(self):
-        """
-        Drop into REPL for user custom commands after main macro.
-        """
-        code.interact(local=locals())
+        # Set number of turns and load sequence
+        self.madx.input(f'n_turns = {self.n_turns}')
+        self.madx.call(file=self.sequence_file)
+
+        # Configure the beam using the provided configuration
+        self.madx.command.beam(**self.beam_config)
+
+        # Select the sequence
+        self.madx.use(sequence='full_ring')

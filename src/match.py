@@ -1,4 +1,4 @@
-class R3Matching:
+class R3Match:
     def match(self):
         """
         Match the optics of the accelerator to the desired parameters.

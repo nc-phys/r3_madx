@@ -15,7 +15,9 @@ if __name__ == "__main__":
     # Match the accelerator optics to desired parameters
     sim.match()
     # Perform Twiss calculations and plot the beta function
-    sim.twiss()
+    #sim.twiss()
+    # R3MADX methods can be called directly without the need for class loading
+    R3MADX().twiss(madx=mad)
 
     # Drop into REPL for custom user commands
     code.interact(local=locals())

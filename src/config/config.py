@@ -2,7 +2,7 @@
 N_TURNS = 1
 
 # Ring configuration
-SEQUENCE_FILE = 'src/sequence.madx'
+SEQUENCE_FILE = 'src/config/sequence.madx'
 AMU = 931.49410242  # MeV
 BEAM_ENERGY = 200.0  # MeV/u
 

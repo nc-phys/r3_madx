@@ -8,8 +8,6 @@ if __name__ == "__main__":
     # Load R3 config to MAD-X
     sim = R3MADX(mad)
 
-    # Perform a geometric survey of the ring & plot it
-    sim.survey()
     # Apply thin lens approximation and edit ring sequence to increase resolution
     sim.tlapprox()
     # Match the accelerator optics to desired parameters

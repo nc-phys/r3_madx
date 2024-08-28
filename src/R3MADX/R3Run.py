@@ -1,4 +1,4 @@
-class R3Twiss:
+class R3Run:
     def twiss(self):
         """
         Perform Twiss calculations and plot the Twiss beta functions.

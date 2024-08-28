@@ -64,5 +64,14 @@ class R3MADX(
         # Select the sequence
         self.madx.use(sequence='full_ring')
 
-        # Perform a geometric survey the configuration & plot it
+        # Perform a geometric survey the configuration
         self.survey()
+
+    def retrieve(self, var_name):
+        """
+        Retrieves the value of an instance variable by name.
+        """
+        if not hasattr(self, var_name):
+            raise AttributeError(f"{var_name} doesn't exist in R3MADX instance")
+        else:
+            return getattr(self,var_name)
